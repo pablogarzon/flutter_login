@@ -45,10 +45,10 @@ class login extends StatelessWidget{
               }, child: new Text("Registrarse"),),
               new RaisedButton(onPressed: (){
                 if(this.userName == 'user' && this.password == "q"){
-                Navigator.of(context).pushNamed('/settings');
+                  Navigator.of(context).pushNamed('/settings');
                 } else {
-
-                };
+                  Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("Usuario o cuenta no válidos")));
+                }
               }, child: new Text("Ingresar"),)
             ],
           ),
