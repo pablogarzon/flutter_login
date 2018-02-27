@@ -4,6 +4,7 @@ import 'package:flutter_login/screens/account/changePassword.dart';
 import 'package:flutter_login/screens/account/accountRecovery.dart';
 import 'package:flutter_login/screens/account/signup.dart';
 import 'package:flutter_login/screens/settings.dart';
+import 'package:flutter_login/screens/home.dart';
 
 void main() => runApp(new MainPage());
 
@@ -66,6 +67,7 @@ class _MainPageState extends State<MainPage> {
         '/login': (BuildContext context) => new login(),
         '/signup': (BuildContext context) => new signup(),
         '/settings': (BuildContext context) => new settings(),
+        '/home': (BuildContext context) => new home(),
       },
       home: new Scaffold(
         appBar: new AppBar(

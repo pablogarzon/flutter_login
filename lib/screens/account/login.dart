@@ -12,20 +12,26 @@ class login extends StatelessWidget{
   static final TextEditingController _user = new TextEditingController();
   static final TextEditingController _password = new TextEditingController();
 
+  //getters and setters
   String get userName => _user.text;
   String get password => _password.text;
 
-  Future<Object> _loginUser() async{
-    await http.get(
-        "https://jsonplaceholder.typicode.com/users",
-    ).then((response) {
-      var result = JSON.decode(response.body.toString());
-      print(result);
-    });
-  }
+  set userName(String value) => _user.text = value;
+  set password(String value) => _password.text = value;
 
   @override
   Widget build(BuildContext context){
+
+    Future<Object> _loginUser() async{
+      await http.get(
+        "https://jsonplaceholder.typicode.com/users",
+      ).then((response) {
+        var result = JSON.decode(response.body.toString());
+        this.userName = "";
+
+        Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route )=> false);
+      });
+    }
 
     _onBack(){
       Navigator.of(context).pushNamed('/signup');
