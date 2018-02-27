@@ -5,25 +5,19 @@ import 'package:flutter_login/widgets/accountLayout.dart';
 
 class accountRecovery extends StatelessWidget{
 
-  static final TextEditingController _user = new TextEditingController();
-  static final TextEditingController _password = new TextEditingController();
+  static final TextEditingController _email = new TextEditingController();
 
-  String get userName => _user.text;
-  String get password => _password.text;
+  String get userEmail => _email.text;
+
 
   @override
   Widget build(BuildContext context){
 
     _onBack(){
-      Navigator.of(context).pushNamed('/changePassword');
+      Navigator.of(context).pushNamed('/login');
     }
 
     _onSubmit(){
-      if(this.userName == 'user' && this.password == "q"){
-        Navigator.of(context).pushNamed('/settings');
-      } else {
-        Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("Usuario o cuenta no válidos")));
-      }
     }
 
 
@@ -34,7 +28,7 @@ class accountRecovery extends StatelessWidget{
               children: <Widget>[
                 new Container(
                     child: new Text(
-                      "INICIAR SESIÓN",
+                      "¿Olvidó su contraseña?",
                       style: new TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
@@ -42,11 +36,11 @@ class accountRecovery extends StatelessWidget{
                 ),
               ],
             ),
-            new TextField(controller: _user, decoration: new InputDecoration(hintText: "usuario")),
-            new TextField(controller: _password, decoration: new InputDecoration(hintText: "password") , obscureText: true,),
+            new Text("Introduzca el email que utilizó para registrarse y le enviaremos su nueva contraseña."),
+            new TextField(controller: _email, decoration: new InputDecoration(hintText: "Correo electrónico")),
             new Row(
               children: <Widget>[
-                new RaisedButton(onPressed: _onBack, child: new Text("Registrarse"),),
+                new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
                 new RaisedButton(onPressed: _onSubmit, child: new Text("Ingresar"),)
               ],
             ),

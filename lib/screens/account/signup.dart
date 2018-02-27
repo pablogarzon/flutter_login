@@ -5,10 +5,12 @@ import 'package:flutter_login/widgets/accountLayout.dart';
 
 class signup extends StatelessWidget{
 
+  static final TextEditingController _email = new TextEditingController();
   static final TextEditingController _user = new TextEditingController();
   static final TextEditingController _password = new TextEditingController();
   static final TextEditingController _confirmPassword = new TextEditingController();
 
+  String get userEmail => _email.text;
   String get userName => _user.text;
   String get password => _password.text;
   String get confirmPassword => _password.text;
@@ -31,6 +33,7 @@ class signup extends StatelessWidget{
 
     return new accountLayout(
         new Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             new Row(
               children: <Widget>[
@@ -44,13 +47,18 @@ class signup extends StatelessWidget{
                 ),
               ],
             ),
+            new TextField(controller: _email, decoration: new InputDecoration(hintText: "email")),
             new TextField(controller: _user, decoration: new InputDecoration(hintText: "usuario")),
             new TextField(controller: _password, decoration: new InputDecoration(hintText: "password") , obscureText: true,),
-            new TextField(controller: _confirmPassword, decoration: new InputDecoration(hintText: "password") , obscureText: true,),
+            //new TextField(controller: _confirmPassword, decoration: new InputDecoration(hintText: "password") , obscureText: true,),
             new Row(
               children: <Widget>[
-                new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
-                new RaisedButton(onPressed: _onSubmit, child: new Text("Registrarse"),)
+                new Expanded(
+                child: new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
+                ),
+                new Expanded(
+                    child: new RaisedButton(onPressed: _onSubmit, child: new Text("Registrarse"),),
+                ),
               ],
             ),
           ],

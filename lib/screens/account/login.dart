@@ -51,8 +51,12 @@ class login extends StatelessWidget{
           new TextField(controller: _password, decoration: new InputDecoration(hintText: "password") , obscureText: true,),
           new Row(
             children: <Widget>[
-              new RaisedButton(onPressed: _onBack, child: new Text("Registrarse"),),
-              new RaisedButton(onPressed: _onSubmit, child: new Text("Ingresar"),)
+              new Expanded(
+                child: new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
+              ),
+              new Expanded(
+                child: new RaisedButton(onPressed: _onSubmit, child: new Text("Registrarse"),),
+              ),
             ],
           ),
         ],
