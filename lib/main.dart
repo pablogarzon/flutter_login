@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/screens/account/login.dart';
-import 'package:flutter_login/screens/settings.dart';
 import 'package:flutter_login/screens/account/changePassword.dart';
+import 'package:flutter_login/screens/account/accountRecovery.dart';
+import 'package:flutter_login/screens/account/signup.dart';
+import 'package:flutter_login/screens/settings.dart';
 
 void main() => runApp(new MainPage());
 
@@ -59,8 +61,10 @@ class _MainPageState extends State<MainPage> {
         primarySwatch: Colors.blue,
       ),
       routes: <String, WidgetBuilder>{
-        '/login': (BuildContext context) => new login(),
+        '/accountRecovery': (BuildContext context) => new accountRecovery(),
         '/changePassword': (BuildContext context) => new changePassword(),
+        '/login': (BuildContext context) => new login(),
+        '/signup': (BuildContext context) => new signup(),
         '/settings': (BuildContext context) => new settings(),
       },
       home: new Scaffold(

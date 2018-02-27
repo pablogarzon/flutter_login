@@ -7,10 +7,7 @@ class login extends StatelessWidget{
 
   const login ({
     Key key,
-    //@required this.onSubmit,
   }): super(key: key);
-
-  //final VoidCallback onSubmit;
 
   static final TextEditingController _user = new TextEditingController();
   static final TextEditingController _password = new TextEditingController();
@@ -20,6 +17,20 @@ class login extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
+
+    _onBack(){
+      Navigator.of(context).pushNamed('/signup');
+    }
+
+    _onSubmit(){
+      if(this.userName == 'user' && this.password == "q"){
+        Navigator.of(context).pushNamed('/settings');
+      } else {
+        Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("Usuario o cuenta no válidos")));
+      }
+    }
+
+
     return new accountLayout(
       new Column(
         children: <Widget>[
@@ -40,16 +51,8 @@ class login extends StatelessWidget{
           new TextField(controller: _password, decoration: new InputDecoration(hintText: "password") , obscureText: true,),
           new Row(
             children: <Widget>[
-              new RaisedButton(onPressed: (){
-                Navigator.of(context).pushNamed('/changePassword');
-              }, child: new Text("Registrarse"),),
-              new RaisedButton(onPressed: (){
-                if(this.userName == 'user' && this.password == "q"){
-                  Navigator.of(context).pushNamed('/settings');
-                } else {
-                  Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("Usuario o cuenta no válidos")));
-                }
-              }, child: new Text("Ingresar"),)
+              new RaisedButton(onPressed: _onBack, child: new Text("Registrarse"),),
+              new RaisedButton(onPressed: _onSubmit, child: new Text("Ingresar"),)
             ],
           ),
         ],

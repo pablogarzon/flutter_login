@@ -11,6 +11,7 @@ class accountLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return new Container(
       decoration: new BoxDecoration(
         color: Colors.cyan,
@@ -25,8 +26,8 @@ class accountLayout extends StatelessWidget {
                   height: 220.0,
                   width: 350.0,
                   color: Colors.white,
-                  margin:  new EdgeInsets.only(left: 15.0, right: 15.0, bottom: 20.0),
-                  padding: const EdgeInsets.all(10.0),
+                  margin:  new EdgeInsets.only(left: 15.0, right: 15.0),
+                  padding: const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
                   child: _page
               ),
             ),
