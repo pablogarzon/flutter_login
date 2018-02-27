@@ -1,3 +1,7 @@
+import 'dart:async';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -5,15 +9,20 @@ import 'package:flutter_login/widgets/accountLayout.dart';
 
 class login extends StatelessWidget{
 
-  const login ({
-    Key key,
-  }): super(key: key);
-
   static final TextEditingController _user = new TextEditingController();
   static final TextEditingController _password = new TextEditingController();
 
   String get userName => _user.text;
   String get password => _password.text;
+
+  Future<Object> _loginUser() async{
+    await http.get(
+        "https://jsonplaceholder.typicode.com/users",
+    ).then((response) {
+      var result = JSON.decode(response.body.toString());
+      print(result);
+    });
+  }
 
   @override
   Widget build(BuildContext context){
@@ -23,8 +32,8 @@ class login extends StatelessWidget{
     }
 
     _onSubmit(){
-      if(this.userName == 'user' && this.password == "q"){
-        Navigator.of(context).pushNamed('/settings');
+      if(this.userName != "" && this.password.length > 6){
+         _loginUser();
       } else {
         Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("Usuario o cuenta no válidos")));
       }
@@ -52,10 +61,10 @@ class login extends StatelessWidget{
           new Row(
             children: <Widget>[
               new Expanded(
-                child: new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
+                child: new RaisedButton(onPressed: _onBack, child: new Text("Registrarse"),),
               ),
               new Expanded(
-                child: new RaisedButton(onPressed: _onSubmit, child: new Text("Registrarse"),),
+                child: new RaisedButton(onPressed: _onSubmit, child: new Text("Ingresar"),),
               ),
             ],
           ),
