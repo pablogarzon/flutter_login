@@ -19,7 +19,7 @@ class signup extends StatelessWidget{
   Widget build(BuildContext context){
 
     _onBack(){
-      Navigator.of(context).pushNamed('/login');
+      Navigator.of(context).pop();
     }
 
     _onSubmit(){
@@ -32,37 +32,37 @@ class signup extends StatelessWidget{
 
 
     return new accountLayout(
-        new Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            new Row(
-              children: <Widget>[
-                new Container(
-                    child: new Text(
-                      "REGISTRAR USUARIO",
-                      style: new TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                ),
-              ],
-            ),
-            new TextField(controller: _email, decoration: new InputDecoration(hintText: "email")),
-            new TextField(controller: _user, decoration: new InputDecoration(hintText: "usuario")),
-            new TextField(controller: _password, decoration: new InputDecoration(hintText: "password") , obscureText: true,),
-            //new TextField(controller: _confirmPassword, decoration: new InputDecoration(hintText: "password") , obscureText: true,),
-            new Row(
-              children: <Widget>[
-                new Expanded(
-                child: new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
-                ),
-                new Expanded(
-                    child: new RaisedButton(onPressed: _onSubmit, child: new Text("Registrarse"),),
-                ),
-              ],
-            ),
-          ],
-        )
+      child: new Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          new Row(
+            children: <Widget>[
+              new Container(
+                  child: new Text(
+                    "REGISTRAR USUARIO",
+                    style: new TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+              ),
+            ],
+          ),
+          new TextField(controller: _email, decoration: new InputDecoration(hintText: "email")),
+          new TextField(controller: _user, decoration: new InputDecoration(hintText: "usuario")),
+          new TextField(controller: _password, decoration: new InputDecoration(hintText: "password") , obscureText: true,),
+          //new TextField(controller: _confirmPassword, decoration: new InputDecoration(hintText: "password") , obscureText: true,),
+          new Row(
+            children: <Widget>[
+              new Expanded(
+              child: new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
+              ),
+              new Expanded(
+                  child: new RaisedButton(onPressed: _onSubmit, child: new Text("Registrarse"),),
+              ),
+            ],
+          ),
+        ],
+      )
     );
   }
 }

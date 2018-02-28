@@ -24,7 +24,7 @@ class login extends StatelessWidget{
 
     Future<Object> _loginUser() async{
       await http.get(
-        "https://jsonplaceholder.typicode.com/users",
+        "http://localhost",
       ).then((response) {
         var result = JSON.decode(response.body.toString());
         this.userName = "";
@@ -45,20 +45,19 @@ class login extends StatelessWidget{
       }
     }
 
-
     return new accountLayout(
-      new Column(
+      child: new Column(
         children: <Widget>[
           new Row(
             children: <Widget>[
               new Container(
-                  margin: new EdgeInsets.only(bottom: 20.0),
-                  child: new Text(
-                    "INICIAR SESIÓN",
-                    style: new TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
+                margin: new EdgeInsets.only(bottom: 20.0),
+                child: new Text(
+                  "INICIAR SESIÓN",
+                  style: new TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
               ),
             ],
           ),

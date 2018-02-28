@@ -16,39 +16,13 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
 
   String _title="Main Page";
-  bool _authenticated;
-
-  _MainPageState(){
-    _authenticated = false;
-  }
 
   void _goHome(){
-    setState((){
-      if(_authenticated==true){
-       // _screen = _settings;
-        _title = "Welcome";
-      } else {
-        //_screen = _login;
-        _title = "Please Login";
-      }
-    });
+
   }
 
   void _logout(){
-    _setAuthenticated(false);
-  }
 
-  void _setAuthenticated(bool auth){
-    setState(() {
-      _authenticated = auth;
-      if(auth == true){
-        //_screen = _settings;
-        _title = "settings";
-      } else {
-        //_screen = _login;
-        _title = "login";
-      }
-    });
   }
 
   final GlobalKey<ScaffoldState> _scaffoldState = new GlobalKey<ScaffoldState>();
@@ -70,15 +44,8 @@ class _MainPageState extends State<MainPage> {
         '/home': (BuildContext context) => new home(),
       },
       home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text(_title),
-          actions: <Widget>[
-            new IconButton(icon: new Icon(Icons.home), onPressed: _goHome),
-            new IconButton(icon: new Icon(Icons.exit_to_app), onPressed: _logout)
-          ],
-        ),
         body: new login(),
-      ),
+      )
     );
   }
 }

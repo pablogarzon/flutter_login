@@ -14,7 +14,7 @@ class accountRecovery extends StatelessWidget{
   Widget build(BuildContext context){
 
     _onBack(){
-      Navigator.of(context).pushNamed('/login');
+      Navigator.of(context).pop;
     }
 
     _onSubmit(){
@@ -22,7 +22,7 @@ class accountRecovery extends StatelessWidget{
 
 
     return new accountLayout(
-        new Column(
+      child: new Column(
           children: <Widget>[
             new Row(
               children: <Widget>[

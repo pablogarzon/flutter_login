@@ -4,10 +4,6 @@ import 'package:flutter_login/widgets/accountLayout.dart';
 
 class changePassword extends StatelessWidget{
 
-  const changePassword ({
-    Key key,
-  }): super(key: key);
-
   static final TextEditingController _oldPassword = new TextEditingController();
   static final TextEditingController _newPassword = new TextEditingController();
   static final TextEditingController _confirmPassword = new TextEditingController();
@@ -18,7 +14,7 @@ class changePassword extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return new accountLayout(
-        new Column(
+        child: new Column(
           children: <Widget>[
             new Row(
               children: <Widget>[
@@ -38,7 +34,7 @@ class changePassword extends StatelessWidget{
             new Row(
               children: <Widget>[
                 new RaisedButton(onPressed: (){
-                  Navigator.of(context).pushNamed('/login');
+                  Navigator.of(context).pop();
                 }, child: new Text("Volver"),),
                 new RaisedButton(onPressed: null, child: new Text("Guardar"),)
               ],
