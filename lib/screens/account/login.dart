@@ -22,14 +22,20 @@ class login extends StatelessWidget{
   @override
   Widget build(BuildContext context){
 
+    void _showAlert(String message){
+      Scaffold.of(context).showSnackBar(new SnackBar(content: new Text(message)));
+    }
+
     Future<Object> _loginUser() async{
       await http.get(
         "http://localhost",
       ).then((response) {
-        var result = JSON.decode(response.body.toString());
-        this.userName = "";
-
-        Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route )=> false);
+        if(response.statusCode != 200){
+          var result = JSON.decode(response.body.toString());
+          Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route )=> false);
+        } else {
+          _showAlert("Usuario o cuenta no válidos");
+        }
       });
     }
 
@@ -39,9 +45,10 @@ class login extends StatelessWidget{
 
     _onSubmit(){
       if(this.userName != "" && this.password.length > 6){
-         _loginUser();
+         //_loginUser();
+        Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route )=> false);
       } else {
-        Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("Usuario o cuenta no válidos")));
+        _showAlert("Debe ingresar un usuario y una contrasea");
       }
     }
 
