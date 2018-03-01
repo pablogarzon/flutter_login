@@ -13,6 +13,14 @@ class changePassword extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
+
+    _onBack(){
+      Navigator.of(context).pop;
+    }
+
+    _onSubmit(){
+    }
+
     return new accountLayout(
         child: new Column(
           children: <Widget>[
@@ -33,10 +41,8 @@ class changePassword extends StatelessWidget{
             new TextField(controller: _confirmPassword, decoration: new InputDecoration(hintText: "confirmar contraseña") , obscureText: true,),
             new Row(
               children: <Widget>[
-                new RaisedButton(onPressed: (){
-                  Navigator.of(context).pop();
-                }, child: new Text("Volver"),),
-                new RaisedButton(onPressed: null, child: new Text("Guardar"),)
+                new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
+                new RaisedButton(onPressed: _onSubmit, child: new Text("Guardar"),)
               ],
             ),
           ],

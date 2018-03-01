@@ -54,7 +54,7 @@ class signup extends StatelessWidget{
           new Row(
             children: <Widget>[
               new Expanded(
-              child: new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
+                child: new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
               ),
               new Expanded(
                   child: new RaisedButton(onPressed: _onSubmit, child: new Text("Registrarse"),),

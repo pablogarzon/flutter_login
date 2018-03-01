@@ -28,10 +28,12 @@ class login extends StatelessWidget{
 
     Future<Object> _loginUser() async{
       await http.get(
-        "http://localhost",
+        "https://randomuser.me/api/?password=" + this.password,
       ).then((response) {
-        if(response.statusCode != 200){
-          var result = JSON.decode(response.body.toString());
+        if(response.statusCode == 200){
+          Map data = JSON.decode(response.body.toString());
+          var personData = data["results"][0]["login"];
+          var userName = personData["username"];
           Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route )=> false);
         } else {
           _showAlert("Usuario o cuenta no válidos");
@@ -45,8 +47,7 @@ class login extends StatelessWidget{
 
     _onSubmit(){
       if(this.userName != "" && this.password.length > 6){
-         //_loginUser();
-        Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route )=> false);
+        _loginUser();
       } else {
         _showAlert("Debe ingresar un usuario y una contrasea");
       }
