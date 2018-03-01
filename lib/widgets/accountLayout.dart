@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class accountLayout extends StatelessWidget {
+class AccountLayout extends StatelessWidget {
 
-  const accountLayout ({
+  const AccountLayout ({
     Key key,
     this.child
   }): super(key: key);

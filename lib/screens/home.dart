@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
-class home extends StatelessWidget{
+class Home extends StatelessWidget{
+
+  Home(String username){
+    this._username = username;
+  }
+
+  String _username;
 
   @override
   Widget build(BuildContext context){
@@ -8,7 +14,7 @@ class home extends StatelessWidget{
       appBar: new AppBar(
         title: new Text("Home"),
       ),
-      body: new Center(child: new Text("Home"),),
+      body: new Center(child: new Text("Welcome $_username"),),
     );
   }
 }

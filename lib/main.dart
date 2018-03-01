@@ -3,7 +3,6 @@ import 'package:flutter_login/screens/account/login.dart';
 import 'package:flutter_login/screens/account/changePassword.dart';
 import 'package:flutter_login/screens/account/accountRecovery.dart';
 import 'package:flutter_login/screens/account/signup.dart';
-import 'package:flutter_login/screens/settings.dart';
 import 'package:flutter_login/screens/home.dart';
 
 void main() => runApp(new MainPage());
@@ -36,15 +35,14 @@ class _MainPageState extends State<MainPage> {
         primarySwatch: Colors.blue,
       ),
       routes: <String, WidgetBuilder>{
-        '/accountRecovery': (BuildContext context) => new accountRecovery(),
-        '/changePassword': (BuildContext context) => new changePassword(),
-        '/login': (BuildContext context) => new login(),
-        '/signup': (BuildContext context) => new signup(),
-        '/settings': (BuildContext context) => new settings(),
-        '/home': (BuildContext context) => new home(),
+        '/accountRecovery': (BuildContext context) => new AccountRecovery(),
+        '/changePassword': (BuildContext context) => new ChangePassword(),
+        '/login': (BuildContext context) => new Login(),
+        '/signup': (BuildContext context) => new Signup(),
+        //'/home': (BuildContext context) => new Home(),
       },
       home: new Scaffold(
-        body: new login(),
+        body: new Login(),
       )
     );
   }

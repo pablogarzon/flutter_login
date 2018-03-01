@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 
 import 'package:flutter_login/widgets/accountLayout.dart';
 
-class signup extends StatelessWidget{
+class Signup extends StatelessWidget{
 
   static final TextEditingController _email = new TextEditingController();
   static final TextEditingController _user = new TextEditingController();
@@ -31,7 +31,7 @@ class signup extends StatelessWidget{
     }
 
 
-    return new accountLayout(
+    return new AccountLayout(
       child: new Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_login/widgets/accountLayout.dart';
 
-class changePassword extends StatelessWidget{
+class ChangePassword extends StatelessWidget{
 
   static final TextEditingController _oldPassword = new TextEditingController();
   static final TextEditingController _newPassword = new TextEditingController();
@@ -21,7 +21,7 @@ class changePassword extends StatelessWidget{
     _onSubmit(){
     }
 
-    return new accountLayout(
+    return new AccountLayout(
         child: new Column(
           children: <Widget>[
             new Row(

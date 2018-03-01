@@ -5,9 +5,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import 'package:flutter_login/screens/home.dart';
 import 'package:flutter_login/widgets/accountLayout.dart';
 
-class login extends StatelessWidget{
+class Login extends StatelessWidget{
 
   static final TextEditingController _user = new TextEditingController();
   static final TextEditingController _password = new TextEditingController();
@@ -34,6 +35,7 @@ class login extends StatelessWidget{
           Map data = JSON.decode(response.body.toString());
           var personData = data["results"][0]["login"];
           var userName = personData["username"];
+          Navigator.of(context).push(new PageRouteBuilder(pageBuilder: (_, __, ___) => new Home(userName)));
           Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route )=> false);
         } else {
           _showAlert("Usuario o cuenta no válidos");
@@ -53,7 +55,7 @@ class login extends StatelessWidget{
       }
     }
 
-    return new accountLayout(
+    return new AccountLayout(
       child: new Column(
         children: <Widget>[
           new Row(

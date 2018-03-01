@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 
 import 'package:flutter_login/widgets/accountLayout.dart';
 
-class accountRecovery extends StatelessWidget{
+class AccountRecovery extends StatelessWidget{
 
   static final TextEditingController _email = new TextEditingController();
 
@@ -21,7 +21,7 @@ class accountRecovery extends StatelessWidget{
     }
 
 
-    return new accountLayout(
+    return new AccountLayout(
       child: new Column(
           children: <Widget>[
             new Row(
