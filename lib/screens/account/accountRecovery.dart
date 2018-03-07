@@ -22,30 +22,30 @@ class AccountRecovery extends StatelessWidget{
 
 
     return new AccountLayout(
-      child: new Column(
-          children: <Widget>[
-            new Row(
-              children: <Widget>[
-                new Container(
-                    child: new Text(
-                      "¿Olvidó su contraseña?",
-                      style: new TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                ),
-              ],
-            ),
-            new Text("Introduzca el email que utilizó para registrarse y le enviaremos su nueva contraseña."),
-            new TextField(controller: _email, decoration: new InputDecoration(hintText: "Correo electrónico")),
-            new Row(
-              children: <Widget>[
-                new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
-                new RaisedButton(onPressed: _onSubmit, child: new Text("Ingresar"),)
-              ],
-            ),
-          ],
-        )
+      body: new Column(
+        children: <Widget>[
+          new Row(
+            children: <Widget>[
+              new Container(
+                  child: new Text(
+                    "¿Olvidó su contraseña?",
+                    style: new TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+              ),
+            ],
+          ),
+          new Text("Introduzca el email que utilizó para registrarse y le enviaremos su nueva contraseña."),
+          new TextField(controller: _email, decoration: new InputDecoration(hintText: "Correo electrónico")),
+        ],
+      ),
+      footer: new Row(
+        children: <Widget>[
+          new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
+          new RaisedButton(onPressed: _onSubmit, child: new Text("Ingresar"),)
+        ],
+      ),
     );
   }
 }

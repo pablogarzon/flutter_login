@@ -59,7 +59,7 @@ class Login extends StatelessWidget{
     }
 
     return new AccountLayout(
-      child: new Column(
+      body: new Column(
         children: <Widget>[
           new Row(
             children: <Widget>[
@@ -76,18 +76,18 @@ class Login extends StatelessWidget{
           ),
           new TextField(controller: _user, decoration: new InputDecoration(hintText: "usuario")),
           new TextField(controller: _password, decoration: new InputDecoration(hintText: "password") , obscureText: true,),
-          new Row(
-            children: <Widget>[
-              new Expanded(
-                child: new RaisedButton(onPressed: _onBack, child: new Text("Registrarse"),),
-              ),
-              new Expanded(
-                child: new RaisedButton(onPressed: _onSubmit, child: new Text("Ingresar"),),
-              ),
-            ],
+        ],
+      ),
+      footer: new Row(
+        children: <Widget>[
+          new Expanded(
+            child: new RaisedButton(onPressed: _onBack, child: new Text("Registrarse"),),
+          ),
+          new Expanded(
+            child: new RaisedButton(onPressed: _onSubmit, child: new Text("Ingresar"),),
           ),
         ],
-      )
+      ),
     );
   }
 }

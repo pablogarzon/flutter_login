@@ -22,7 +22,7 @@ class ChangePassword extends StatelessWidget{
     }
 
     return new AccountLayout(
-        child: new Column(
+        body: new Column(
           children: <Widget>[
             new Row(
               children: <Widget>[
@@ -39,14 +39,14 @@ class ChangePassword extends StatelessWidget{
             new TextField(controller: _oldPassword, decoration: new InputDecoration(hintText: "contraseña actual"), obscureText: true),
             new TextField(controller: _newPassword, decoration: new InputDecoration(hintText: "nueva contraseña") , obscureText: true,),
             new TextField(controller: _confirmPassword, decoration: new InputDecoration(hintText: "confirmar contraseña") , obscureText: true,),
-            new Row(
-              children: <Widget>[
-                new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
-                new RaisedButton(onPressed: _onSubmit, child: new Text("Guardar"),)
-              ],
-            ),
           ],
-        )
+        ),
+      footer: new Row(
+        children: <Widget>[
+          new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
+          new RaisedButton(onPressed: _onSubmit, child: new Text("Guardar"),)
+        ],
+      ),
     );
   }
 }

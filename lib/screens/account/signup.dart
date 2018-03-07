@@ -32,7 +32,8 @@ class Signup extends StatelessWidget{
 
 
     return new AccountLayout(
-      child: new Column(
+      height: 220.0,
+      body: new Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           new Row(
@@ -50,19 +51,19 @@ class Signup extends StatelessWidget{
           new TextField(controller: _email, decoration: new InputDecoration(hintText: "email")),
           new TextField(controller: _user, decoration: new InputDecoration(hintText: "usuario")),
           new TextField(controller: _password, decoration: new InputDecoration(hintText: "password") , obscureText: true,),
-          //new TextField(controller: _confirmPassword, decoration: new InputDecoration(hintText: "password") , obscureText: true,),
-          new Row(
-            children: <Widget>[
-              new Expanded(
-                child: new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
-              ),
-              new Expanded(
-                  child: new RaisedButton(onPressed: _onSubmit, child: new Text("Registrarse"),),
-              ),
-            ],
+          new TextField(controller: _confirmPassword, decoration: new InputDecoration(hintText: "confirm password") , obscureText: true,),
+        ],
+      ),
+      footer: new Row(
+        children: <Widget>[
+          new Expanded(
+            child: new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
+          ),
+          new Expanded(
+            child: new RaisedButton(onPressed: _onSubmit, child: new Text("Registrarse"),),
           ),
         ],
-      )
+      ),
     );
   }
 }
