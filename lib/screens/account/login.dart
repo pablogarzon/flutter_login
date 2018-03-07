@@ -35,8 +35,11 @@ class Login extends StatelessWidget{
           Map data = JSON.decode(response.body.toString());
           var personData = data["results"][0]["login"];
           var userName = personData["username"];
-          Navigator.of(context).push(new PageRouteBuilder(pageBuilder: (_, __, ___) => new Home(userName)));
-          Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route )=> false);
+          this.password = "";
+          Navigator.of(context).pushAndRemoveUntil(
+            new PageRouteBuilder(pageBuilder: (_, __, ___) => new Home(userName)),
+            (Route<dynamic> route)=> false
+          );
         } else {
           _showAlert("Usuario o cuenta no válidos");
         }
