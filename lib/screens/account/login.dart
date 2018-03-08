@@ -34,16 +34,16 @@ class Login extends StatelessWidget{
         if(response.statusCode == 200){
           Map data = JSON.decode(response.body.toString());
           var personData = data["results"][0]["login"];
-          var userName = personData["username"];
-          this.password = "";
+          var name = personData["username"];
           Navigator.of(context).pushAndRemoveUntil(
-            new PageRouteBuilder(pageBuilder: (_, __, ___) => new Home(userName)),
+            new PageRouteBuilder(pageBuilder: (_, __, ___) => new Home(name)),
             (Route<dynamic> route)=> false
           );
         } else {
-          _showAlert("Usuario o cuenta no válidos");
+          _showAlert("invalid user or password");
         }
       });
+      this.password = "";
     }
 
     _onBack(){
@@ -51,10 +51,10 @@ class Login extends StatelessWidget{
     }
 
     _onSubmit(){
-      if(this.userName != "" && this.password.length > 6){
+      if(this.userName != "" && this.password != ""){
         _loginUser();
       } else {
-        _showAlert("Debe ingresar un usuario y una contrasea");
+        _showAlert("invalid user or password");
       }
     }
 
@@ -66,7 +66,7 @@ class Login extends StatelessWidget{
               new Container(
                 margin: new EdgeInsets.only(bottom: 20.0),
                 child: new Text(
-                  "INICIAR SESIÓN",
+                  "LOG IN",
                   style: new TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
@@ -74,17 +74,17 @@ class Login extends StatelessWidget{
               ),
             ],
           ),
-          new TextField(controller: _user, decoration: new InputDecoration(hintText: "usuario")),
+          new TextField(controller: _user, decoration: new InputDecoration(hintText: "user")),
           new TextField(controller: _password, decoration: new InputDecoration(hintText: "password") , obscureText: true,),
         ],
       ),
       footer: new Row(
         children: <Widget>[
           new Expanded(
-            child: new RaisedButton(onPressed: _onBack, child: new Text("Registrarse"),),
+            child: new RaisedButton(onPressed: _onBack, child: new Text("Sign Up"),),
           ),
           new Expanded(
-            child: new RaisedButton(onPressed: _onSubmit, child: new Text("Ingresar"),),
+            child: new RaisedButton(onPressed: _onSubmit, child: new Text("Log in"),),
           ),
         ],
       ),

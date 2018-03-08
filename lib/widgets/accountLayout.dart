@@ -33,7 +33,7 @@ class AccountLayout extends StatelessWidget {
                 child: new FlutterLogo(
                   size: 120.0,
                 ),
-                margin: new EdgeInsets.only(bottom: 50.0),
+                margin: new EdgeInsets.only(bottom: 70.0),
               ),
               new Card(
                 child: new Column(

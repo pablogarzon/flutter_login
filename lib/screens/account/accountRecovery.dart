@@ -28,7 +28,7 @@ class AccountRecovery extends StatelessWidget{
             children: <Widget>[
               new Container(
                   child: new Text(
-                    "¿Olvidó su contraseña?",
+                    "FORGOT PASSWORD?",
                     style: new TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -36,14 +36,14 @@ class AccountRecovery extends StatelessWidget{
               ),
             ],
           ),
-          new Text("Introduzca el email que utilizó para registrarse y le enviaremos su nueva contraseña."),
-          new TextField(controller: _email, decoration: new InputDecoration(hintText: "Correo electrónico")),
+          new Text("Input your email and we send you a new password."),
+          new TextField(controller: _email, decoration: new InputDecoration(hintText: "email")),
         ],
       ),
       footer: new Row(
         children: <Widget>[
-          new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
-          new RaisedButton(onPressed: _onSubmit, child: new Text("Ingresar"),)
+          new RaisedButton(onPressed: _onBack, child: new Text("Back"),),
+          new RaisedButton(onPressed: _onSubmit, child: new Text("Send"),)
         ],
       ),
     );

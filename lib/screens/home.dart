@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget{
 
-  Home(String username){
-    this._username = username;
+  Home(String name){
+    this._name = name;
   }
 
-  String _username;
+  String _name;
 
   @override
   Widget build(BuildContext context){
@@ -19,7 +19,7 @@ class Home extends StatelessWidget{
           })
         ],
       ),
-      body: new Center(child: new Text("Welcome $_username"),),
+      body: new Center(child: new Text("Welcome $_name"),),
     );
   }
 }

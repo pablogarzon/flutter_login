@@ -28,7 +28,7 @@ class ChangePassword extends StatelessWidget{
               children: <Widget>[
                 new Container(
                     child: new Text(
-                      "CAMBIAR CONTRASEÑA",
+                      "CHANGE PASSWORD",
                       style: new TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
@@ -36,15 +36,15 @@ class ChangePassword extends StatelessWidget{
                 ),
               ],
             ),
-            new TextField(controller: _oldPassword, decoration: new InputDecoration(hintText: "contraseña actual"), obscureText: true),
-            new TextField(controller: _newPassword, decoration: new InputDecoration(hintText: "nueva contraseña") , obscureText: true,),
-            new TextField(controller: _confirmPassword, decoration: new InputDecoration(hintText: "confirmar contraseña") , obscureText: true,),
+            new TextField(controller: _oldPassword, decoration: new InputDecoration(hintText: "current password"), obscureText: true),
+            new TextField(controller: _newPassword, decoration: new InputDecoration(hintText: "new password") , obscureText: true,),
+            new TextField(controller: _confirmPassword, decoration: new InputDecoration(hintText: "confirm password") , obscureText: true,),
           ],
         ),
       footer: new Row(
         children: <Widget>[
-          new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
-          new RaisedButton(onPressed: _onSubmit, child: new Text("Guardar"),)
+          new RaisedButton(onPressed: _onBack, child: new Text("Back"),),
+          new RaisedButton(onPressed: _onSubmit, child: new Text("Save"),)
         ],
       ),
     );

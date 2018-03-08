@@ -26,7 +26,7 @@ class Signup extends StatelessWidget{
       if(this.userName == 'user' && this.password == "q"){
         Navigator.of(context).pushNamed('/settings');
       } else {
-        Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("Usuario o cuenta no válidos")));
+        Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("User is not valid")));
       }
     }
 
@@ -40,7 +40,7 @@ class Signup extends StatelessWidget{
             children: <Widget>[
               new Container(
                   child: new Text(
-                    "REGISTRAR USUARIO",
+                    "SIGN UP",
                     style: new TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -49,7 +49,7 @@ class Signup extends StatelessWidget{
             ],
           ),
           new TextField(controller: _email, decoration: new InputDecoration(hintText: "email")),
-          new TextField(controller: _user, decoration: new InputDecoration(hintText: "usuario")),
+          new TextField(controller: _user, decoration: new InputDecoration(hintText: "user")),
           new TextField(controller: _password, decoration: new InputDecoration(hintText: "password") , obscureText: true,),
           new TextField(controller: _confirmPassword, decoration: new InputDecoration(hintText: "confirm password") , obscureText: true,),
         ],
@@ -57,10 +57,10 @@ class Signup extends StatelessWidget{
       footer: new Row(
         children: <Widget>[
           new Expanded(
-            child: new RaisedButton(onPressed: _onBack, child: new Text("Volver"),),
+            child: new RaisedButton(onPressed: _onBack, child: new Text("Back"),),
           ),
           new Expanded(
-            child: new RaisedButton(onPressed: _onSubmit, child: new Text("Registrarse"),),
+            child: new RaisedButton(onPressed: _onSubmit, child: new Text("Sign up"),),
           ),
         ],
       ),
