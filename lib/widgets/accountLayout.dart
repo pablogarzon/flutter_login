@@ -19,6 +19,7 @@ class AccountLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: new Container(
         decoration: new BoxDecoration(
           color: Colors.blueAccent,
@@ -26,14 +27,13 @@ class AccountLayout extends StatelessWidget {
         ),
         padding: new EdgeInsets.all(30.0),
         child: new Center(
-          child: new Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: new ListView(
             children: <Widget>[
               new Container(
                 child: new FlutterLogo(
                   size: 120.0,
                 ),
-                margin: new EdgeInsets.only(bottom: 70.0),
+                margin: new EdgeInsets.only(top: 20.0, bottom: 70.0),
               ),
               new Card(
                 child: new Column(

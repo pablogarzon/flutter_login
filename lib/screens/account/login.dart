@@ -7,8 +7,12 @@ import 'package:flutter/widgets.dart';
 
 import 'package:flutter_login/screens/home.dart';
 import 'package:flutter_login/widgets/accountLayout.dart';
+import 'package:flutter_login/widgets/EnsureVisibleWhenFocused.dart';
 
 class Login extends StatelessWidget{
+
+  FocusNode _userfocusNode = new FocusNode();
+  FocusNode _passfocusNode = new FocusNode();
 
   static final TextEditingController _user = new TextEditingController();
   static final TextEditingController _password = new TextEditingController();
@@ -74,8 +78,14 @@ class Login extends StatelessWidget{
               ),
             ],
           ),
-          new TextField(controller: _user, decoration: new InputDecoration(hintText: "user")),
-          new TextField(controller: _password, decoration: new InputDecoration(hintText: "password") , obscureText: true,),
+          new EnsureVisibleWhenFocused(
+            focusNode: _userfocusNode,
+            child: new TextField(controller: _user, decoration: new InputDecoration(hintText: "user"), focusNode: _userfocusNode,),
+          ),
+          new EnsureVisibleWhenFocused(
+            focusNode: _passfocusNode,
+            child: new TextField(controller: _password, decoration: new InputDecoration(hintText: "password") , obscureText: true, focusNode: _passfocusNode,),
+          ),
         ],
       ),
       footer: new Row(
